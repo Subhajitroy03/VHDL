@@ -1,0 +1,46 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+---- Uncomment the following library declaration if instantiating
+---- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity DEMUX14 is
+    Port ( A : in  STD_LOGIC;
+           S : in  STD_LOGIC_VECTOR (1 downto 0);
+           Y : out  STD_LOGIC_VECTOR (3 downto 0));
+end DEMUX14;
+
+architecture Behavioral of DEMUX14 is
+
+begin
+PROCESS(A,S(0),S(1))
+BEGIN
+IF(S="00") THEN
+	Y(0)<=A;
+	Y(1)<='0';
+	Y(2)<='0';
+	Y(3)<='0';
+ELSIF (S="01") THEN
+	Y(1)<=A;
+	Y(0)<='0';
+	Y(2)<='0';
+	Y(3)<='0';
+ELSIF (S="10") THEN
+	Y(2)<=A;
+	Y(1)<='0';
+	Y(0)<='0';
+	Y(3)<='0';
+ELSE 
+	Y(3)<=A;
+	Y(1)<='0';
+	Y(2)<='0';
+	Y(0)<='0';
+END IF;
+END PROCESS;
+
+
+end Behavioral;
