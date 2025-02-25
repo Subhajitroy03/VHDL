@@ -1,0 +1,25 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity DECODER01 is
+    Port ( A : in  STD_LOGIC_VECTOR (1 downto 0);
+           Y : out  STD_LOGIC_VECTOR (3 downto 0));
+end DECODER01;
+
+architecture Behavioral of DECODER01 is
+
+begin
+PROCESS(A)
+BEGIN 
+	CASE A IS
+		WHEN "00"=>Y<="0001";
+		WHEN "01"=>Y<="0010";
+		WHEN "10"=>Y<="0100";
+		WHEN "11"=>Y<="1000";
+		WHEN OTHERS =>Y<="0000";
+	END CASE;
+	END PROCESS;
+
+end Behavioral;
