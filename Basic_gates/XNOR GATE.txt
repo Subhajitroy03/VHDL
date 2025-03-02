@@ -17,6 +17,6 @@ end xnor_gate;
 architecture Behavioral of xnor_gate is
 
 begin
-Y<=not(A xor B);
+Y<=A xnor B;
 
 end Behavioral;
