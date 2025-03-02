@@ -1,0 +1,45 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+---- Uncomment the following library declaration if instantiating
+---- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity DECODER24 is
+    Port ( A : in  STD_LOGIC_VECTOR (1 downto 0);
+           Y : out  STD_LOGIC_VECTOR (3 downto 0));
+end DECODER24;
+
+architecture Behavioral of DECODER24 is
+
+begin
+PROCESS(A(0),A(1))
+BEGIN
+IF (A="00") THEN
+	Y(0)<='1';
+	Y(1)<='0';
+	Y(2)<='0';
+	Y(3)<='0';
+ELSIF (A="01") THEN
+	Y(0)<='0';
+	Y(1)<='1';
+	Y(2)<='0';
+	Y(3)<='0';
+ELSIF (A="10") THEN
+	Y(0)<='0';
+	Y(1)<='0';
+	Y(2)<='1';
+	Y(3)<='0';
+ELSE
+	Y(0)<='0';
+	Y(1)<='0';
+	Y(2)<='0';
+	Y(3)<='1';
+END IF;
+END PROCESS;
+
+end Behavioral;
+

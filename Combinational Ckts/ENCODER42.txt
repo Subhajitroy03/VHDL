@@ -1,0 +1,26 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+
+
+entity ENCODER42 is
+    Port ( A : in  STD_LOGIC_VECTOR (3 downto 0);
+           Y : out  STD_LOGIC_VECTOR (1 downto 0));
+end ENCODER42;
+
+architecture Behavioral of ENCODER42 is
+
+begin
+PROCESS(A)
+BEGIN
+CASE(A) IS
+	WHEN "0001"=>Y<="00";
+	WHEN "0010"=>Y<="01";
+	WHEN "0100"=>Y<="10";
+	WHEN "1000"=>Y<="11";
+	WHEN OTHERS=>Y<="XX";
+END CASE;
+END PROCESS;
+end Behavioral;
