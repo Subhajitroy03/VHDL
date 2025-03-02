@@ -17,6 +17,6 @@ end nand_gate;
 architecture Behavioral of nand_gate is
 
 begin
-Y<=NOT (A and B);
+Y<= A nand B;
 
 end Behavioral;
