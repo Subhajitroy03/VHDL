@@ -17,6 +17,6 @@ end nor_gate;
 architecture Behavioral of nor_gate is
 
 begin
-Y<=NOT (A or B);
+Y<=A nor B;
 
 end Behavioral;
