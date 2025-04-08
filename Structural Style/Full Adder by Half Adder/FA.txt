@@ -1,0 +1,31 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+---- Uncomment the following library declaration if instantiating
+---- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity FA is
+    Port ( A : in  STD_LOGIC;
+           B : in  STD_LOGIC;
+           CIN : in  STD_LOGIC;
+           SUM : out  STD_LOGIC;
+           COUT : out  STD_LOGIC);
+end FA;
+
+architecture Behavioral of FA is
+component HA is
+	Port ( x : in  STD_LOGIC;
+           y : in  STD_LOGIC;
+           s : out  STD_LOGIC;
+           c : out  STD_LOGIC);
+end component;
+SIGNAL s1,s2,s3: STD_LOGIC;
+begin
+HA1: HA PORT MAP(A,B,s1,s2);
+HA2: HA PORT MAP(CIN,s1,SUM,s3);
+COUT<=s2 or s3;
+end Behavioral;
