@@ -1,0 +1,32 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+---- Uncomment the following library declaration if instantiating
+---- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity MUX41 is
+    Port ( A : in  STD_LOGIC_VECTOR (3 downto 0);
+           SL : in  STD_LOGIC_VECTOR (1 downto 0);
+           O : out  STD_LOGIC);
+end MUX41;
+
+architecture Behavioral of MUX41 is
+COMPONENT MUX21 IS
+	Port ( I1 : in  STD_LOGIC;
+			 I0 : in  STD_LOGIC;
+           S : in  STD_LOGIC;
+           Y : out  STD_LOGIC);
+END COMPONENT;
+	SIGNAL S1,S2: STD_LOGIC;
+
+begin
+	MUX1: MUX21 PORT MAP(A(1),A(0),SL(0),S1);
+	MUX2: MUX21 PORT MAP(A(3),A(2),SL(0),S2);
+	MUX3: MUX21 PORT MAP(S2,S1,SL(1),O);
+
+
+end Behavioral;
