@@ -1,0 +1,38 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+---- Uncomment the following library declaration if instantiating
+---- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity JK_FF is
+    Port ( CLK : in  STD_LOGIC;
+           J : in  STD_LOGIC;
+           K : in  STD_LOGIC;
+           Q : out  STD_LOGIC;
+           QB : out  STD_LOGIC);
+end JK_FF;
+
+architecture Behavioral of JK_FF is
+begin
+	PROCESS(CLK)
+	variable temp:STD_LOGIC;
+	BEGIN
+		IF(CLK='1' AND CLK'EVENT) THEN
+			IF(J='0' AND K='0') THEN
+				temp:=temp;
+			ELSIF(J='0' AND K='1') THEN
+				temp:='0';
+			ELSIF(J='1' AND K='0') THEN
+				temp:='1';
+			ELSE
+				temp:=not temp;
+			END IF;
+		END IF;
+		Q<=temp;
+		QB<=NOT temp;
+	end process;
+end Behavioral;
