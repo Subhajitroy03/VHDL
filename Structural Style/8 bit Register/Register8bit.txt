@@ -1,0 +1,34 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+---- Uncomment the following library declaration if instantiating
+---- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity register8bit is
+    Port ( CLK : in  STD_LOGIC;
+           A : in  STD_LOGIC;
+           POUT : out  STD_LOGIC_VECTOR (7 downto 0));
+end register8bit;
+
+architecture Structural of register8bit is
+component DFF is
+	  Port ( CLK : in  STD_LOGIC;
+           D : in  STD_LOGIC;
+           Q : out  STD_LOGIC);
+end component;
+signal S: STD_LOGIC_VECTOR(7 downto 0);
+begin
+DFF1: DFF PORT MAP(CLK,A,S(0));
+DFF2: DFF PORT MAP(CLK,S(0),S(1));
+DFF3: DFF PORT MAP(CLK,S(1),S(2));
+DFF4: DFF PORT MAP(CLK,S(2),S(3));
+DFF5: DFF PORT MAP(CLK,S(3),S(4));
+DFF6: DFF PORT MAP(CLK,S(4),S(5));
+DFF7: DFF PORT MAP(CLK,S(5),S(6));
+DFF8: DFF PORT MAP(CLK,S(6),S(7));
+POUT<=S;
+end Structural;
