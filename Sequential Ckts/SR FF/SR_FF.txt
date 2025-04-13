@@ -1,0 +1,38 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+---- Uncomment the following library declaration if instantiating
+---- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity SR_FF is
+    Port ( CLK : in  STD_LOGIC;
+           S : in  STD_LOGIC;
+           R : in  STD_LOGIC;
+           Q : out  STD_LOGIC;
+           QB : out  STD_LOGIC);
+end SR_FF;
+
+architecture Behavioral of SR_FF is
+begin
+	PROCESS(CLK)
+	variable temp:STD_LOGIC;
+	BEGIN
+		IF(CLK='1' AND CLK'EVENT) THEN
+			IF(S='0' AND R='0') THEN
+				temp:=temp;
+			ELSIF(S='0' AND R='1') THEN
+				temp:='0';
+			ELSIF(S='1' AND R='0') THEN
+				temp:='1';
+			ELSE
+				temp:='Z';
+			END IF;
+		END IF;
+		Q<=temp;
+		QB<=NOT temp;
+	end process;
+end Behavioral;
