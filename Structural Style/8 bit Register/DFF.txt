@@ -21,11 +21,7 @@ begin
 	variable temp: STD_LOGIC;
 	begin
 			if(CLK='1' AND CLK'EVENT)THEN
-				IF(D='0') THEN
-					temp:='0';
-				ELSE
-					temp:='1';
-				END IF;
+				temp:=D;
 			END IF;Q<=temp;
 	END PROCESS;
 
