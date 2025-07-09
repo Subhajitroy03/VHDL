@@ -50,4 +50,29 @@ This repository contains VHDL implementations of basic gates, combinational circ
 - 8-bit Full Adder  
 - 8-bit Register  
 - 41:1 Multiplexer using 2:1 MUX  
-- Full Adder by Half Adders  
+- Full Adder by Half Adders 
+
+
+SOME QUESTIONS TO PRACTICE:
+1) 4 X1 MUX
+2) Full Adder (Data flow)
+3) Full Adder using Half Adder
+4) J-K flipflop 
+5) D Flip flop 
+6) SR Flipflop 
+7) Full subtractor
+8) Half Adder (Structural model)
+9) Half Adder (data flow model)
+10) 4:1 MUX (structural)
+11) 4:1 MUX (behavioural)
+12) Full Adder ( if else)
+13) Y= AB + C
+14) 2:4 Decoder (Data flow)
+15) 4:2 Encoder 
+16) BCD Adder 
+17) 2:1 MUX
+18) Demux 1:4
+19) 8 bit Adder ( Structural model)
+20) XOR and OR gate (if else)
+21) Shift Register 
+22) ALU
